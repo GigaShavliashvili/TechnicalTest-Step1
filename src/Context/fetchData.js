@@ -22,6 +22,7 @@ const GithubProvider = ({ children }) => {
   // Fetch Users During Seraching
 
   const searchGithubUser = (userName, page) => {
+    console.log(userName);
     if (userName === "") {
       //if username has not a value search bar will be cleard.
       setGithubUser([]);
@@ -33,9 +34,9 @@ const GithubProvider = ({ children }) => {
         {
           method: "GET",
 
-          headers: {
+          /*     headers: {
             Authorization: `token ${process.env.REACT_APP_USER_TOKEN}`,
-          },
+          }, */
         }
       )
         .then((res) => res.json())
@@ -61,9 +62,9 @@ const GithubProvider = ({ children }) => {
     setIsLoadingDetail(true);
     fetch(`${USER__API}/users/${userName}`, {
       method: "GET",
-      headers: {
+      /*      headers: {
         Authorization: `token ${process.env.REACT_APP_USER_TOKEN}`,
-      },
+      }, */
     })
       .then((res) => res.json())
       .then((json) => {
@@ -86,17 +87,13 @@ const GithubProvider = ({ children }) => {
   const FetchGithubUserRepo = (userName) => {
     fetch(`${USER__API}/users/${userName}/repos`, {
       method: "GET",
-      headers: {
+      /*     headers: {
         Authorization: `token ${process.env.REACT_APP_USER_TOKEN}`,
-      },
+      }, */
     })
       .then((res) => res.json())
       .then((json) => {
-        if (json.length !== 0) {
-          setGithubUserRepo(json);
-        } else {
-          toggleError(true, "there is no Repo");
-        }
+        setGithubUserRepo(json);
       })
       .catch((err) => {
         console.log(err);

@@ -52,7 +52,7 @@ const User = () => {
           <PreLoader />
         )
       ) : (
-        <h2>{error.meg}</h2>
+        <h2>{error.msg}</h2>
       )}
     </div>
   );
