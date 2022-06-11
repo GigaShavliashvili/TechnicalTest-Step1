@@ -22,12 +22,13 @@ const SearchedResult = ({ error, isLoading, githubUser }) => {
                 <Link
                   to={`user/${user?.login}`}
                   style={{ textDecoration: "none" }}
+                   key={user?.id}
                 >
                   <div
                     className="text-dark border-bottom d-flex align-items-center 
                   justify-content-between
                   p-2"
-                    key={user?.id}
+                   
                   >
                     <p>{user?.login}</p>
                     <img
