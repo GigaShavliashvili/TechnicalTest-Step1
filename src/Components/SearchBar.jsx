@@ -38,7 +38,7 @@ const SearchBar = () => {
       >
         <input
           type="search"
-          defaultValue={userName}
+          value={userName}
           className="form-control"
           placeholder="Search..."
         />
